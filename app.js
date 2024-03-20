@@ -123,7 +123,7 @@ const players = [
     },
 ]
 
-function pickTeam() {
+function draftPlayers() {
     players.forEach(player => {
 
         let coinFlip = Math.random()
@@ -132,7 +132,42 @@ function pickTeam() {
         } else {
             player.teamNumber = 2
         }
-        console.log(player.teamNumber)
+        // console.log(player.teamNumber)
+    })
+    calcTeamsAndSkill()
+    drawTeams()
+}
 
+function drawTeams() {
+    players.forEach(player => {
+        if (player.teamNumber == 1) {
+            let teamOne = document.getElementById('roster1')
+            teamOne.innerHTML += `<span>${player.emoji}</span>`
+        } else {
+            let teamTwo = document.getElementById('roster2')
+            teamTwo.innerHTML += `<span>${player.emoji}</span>`
+        }
     });
+}
+
+function calcTeamsAndSkill() {
+    let team1 = players.filter((player) => player.teamNumber == 1)
+    let team2 = players.filter((player) => player.teamNumber == 2)
+    // console.log(team1)
+    // console.log(team2)
+
+    let team1Skill = 0
+    team1.forEach(player => {
+        player.skill += team1Skill
+        console.log(player.skill)
+    });
+
+    let team2Skill = 0
+    team2.forEach(player => {
+        player.skill += team2Skill
+        console.log(player.skill)
+    });
+
+    console.log('team 1 ', team1Skill)
+    console.log('team2 ', team2Skill)
 }
