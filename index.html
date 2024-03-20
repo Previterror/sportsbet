@@ -16,22 +16,25 @@
     <header class="container-fluid">
         <div class="row">
             <h1>SRSB</h1>
-            <span>Super Realistic Sports Bets</span>
+            <p>Super Realistic Sports Bets</p>
         </div>
     </header>
 
-    <main class="container">
+    <main class="container-fluid">
 
-        <section id="bankSection">
-            <h4>Bank</h4>
-            <span id="bankTotal">$Placeholder</span>
+        <!-- SECTION Bank -->
+        <section id="bankSection row justify-content-around">
+            <div class="col-8">
+                <h4>Bank</h4>
+                <p id="bankTotal">$Placeholder</p>
+            </div>
         </section>
+        <!-- SECTION Teams and Betting -->
+        <section id="teamsAndBetting" class="row justify-content-between m-4">
 
-        <section id="teamsAndBetting" class="row justify-content-between">
-
-            <div id="team1" class="col-5">
-                <span>Team 1</span>
-                <span id="roster">🐈🐈🐈</span>
+            <div id="team1" class="col-5 text-center">
+                <p>Team 1</p>
+                <p id="roster">🐈🐈🐈</p>
                 <div id="bets" class="row">
                     <button id="bet5" class="btn btn-success">Bet 5</button>
                     <button id="bet25" class="btn btn-success">Bet 25</button>
@@ -40,9 +43,9 @@
                 </div>
             </div>
 
-            <div id="team2" class="col-5">
-                <span>Team 2</span>
-                <span id="roster">🐕‍🦺🐩🐕</span>
+            <div id="team2" class="col-5 text-center">
+                <p>Team 2</p>
+                <p id="roster">🐕‍🦺🐩🐕</p>
                 <div id="bets" class="row">
                     <button id="bet5" class="btn btn-danger">Bet 5</button>
                     <button id="bet25" class="btn btn-danger">Bet 25</button>
@@ -51,7 +54,14 @@
                 </div>
             </div>
 
+        </section>
 
+        <!-- SECTION Bet Results -->
+        <section id="results" class="row justify-content-around">
+            <div class="col-8 text-center">
+                <div id="resultsImage"><img src="" alt="Results Image"></div>
+                <h1 id="resultsText">Results Text</h1>
+            </div>
         </section>
 
     </main>
