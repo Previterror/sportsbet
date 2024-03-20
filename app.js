@@ -172,8 +172,8 @@ function calcTeamsAndSkill() {
         // console.log(player.skill)
     });
 
-    console.log('team 1 ', team1Skill)
-    console.log('team 2 ', team2Skill)
+    console.log('team 0 ', team1Skill)
+    console.log('team 1 ', team2Skill)
 }
 
 let winner = null
@@ -184,9 +184,10 @@ function checkWinner() {
         winner = 1
     }
     console.log('winner is', winner)
+    drawResult()
     adjustBank()
     teamBet = [0, 0]
-    chosenTeam = 0
+    chosenTeam = null
 }
 
 
@@ -203,11 +204,7 @@ function bet(index, value) {
     teamBet[index] += value
     console.log('team bet', teamBet);
     drawBank()
-    if (index = 0) {
-        chosenTeam = 0
-    } else {
-        chosenTeam = 1
-    }
+    chosenTeam = index
     console.log('chosen team', chosenTeam)
     checkWinner()
 }
@@ -226,6 +223,21 @@ function adjustBank() {
         bank += teamBet[chosenTeam] * 2
     } else {
         bank -= teamBet[chosenTeam]
+    }
+    console.log(bank);
+    drawBank()
+}
+
+function drawResult() {
+    let resultImage = document.getElementById('resultsImage')
+    let resultText = document.getElementById('resultsText')
+
+    if (winner == chosenTeam) {
+        resultImage.innerHTML = `<span class="mdi mdi-thumb-up-outline fs-1"></span>`
+        resultText.innerText = 'Good job you got it!'
+    } else {
+        resultImage.innerHTML = `<span class="mdi mdi-thumb-down-outline fs-1"></span>`
+        resultText.innerText = 'Aw rats you lose!'
     }
 }
 
