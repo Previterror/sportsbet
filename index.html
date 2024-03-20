@@ -26,7 +26,7 @@
         <section id="bankSection row justify-content-around">
             <div class="col-8">
                 <h4>Bank</h4>
-                <p id="bankTotal">$Placeholder</p>
+                <p id="bankTotal">$0.00</p>
             </div>
         </section>
         <!-- SECTION Teams and Betting -->
@@ -36,10 +36,10 @@
                 <p>Team 1</p>
                 <p id="roster1"></p>
                 <div id="bets" class="row">
-                    <button id="bet5" class="btn btn-success">Bet 5</button>
-                    <button id="bet25" class="btn btn-success">Bet 25</button>
-                    <button id="bet100" class="btn btn-success">Bet 100</button>
-                    <button id="betAll" class="btn btn-success col-12">Bet it ALL</button>
+                    <button id="bet5" class="btn btn-success" onclick="bet(0,5)">Bet 5</button>
+                    <button id="bet25" class="btn btn-success" onclick="bet(0,25)">Bet 25</button>
+                    <button id="bet100" class="btn btn-success" onclick="bet(0,100)">Bet 100</button>
+                    <button id="betAll" class="btn btn-success col-12" onclick="betItAll(0)">Bet it ALL</button>
                 </div>
             </div>
 
@@ -47,10 +47,10 @@
                 <p>Team 2</p>
                 <p id="roster2"></p>
                 <div id="bets" class="row">
-                    <button id="bet5" class="btn btn-danger">Bet 5</button>
-                    <button id="bet25" class="btn btn-danger">Bet 25</button>
-                    <button id="bet100" class="btn btn-danger">Bet 100</button>
-                    <button id="betAll" class="btn btn-danger col-12">Bet it ALL</button>
+                    <button id="bet5" class="btn btn-danger" onclick="bet(1,5)">Bet 5</button>
+                    <button id="bet25" class="btn btn-danger" onclick="bet(1,25)">Bet 25</button>
+                    <button id="bet100" class="btn btn-danger" onclick="bet(1,100)">Bet 100</button>
+                    <button id="betAll" class="btn btn-danger col-12" onclick="betItAll(1)">Bet it ALL</button>
                 </div>
             </div>
 

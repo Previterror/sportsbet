@@ -1,4 +1,5 @@
 let bank = 100
+drawBank()
 
 const players = [
     {
@@ -150,24 +151,74 @@ function drawTeams() {
     });
 }
 
+let team1Skill = 0
+let team2Skill = 0
+
 function calcTeamsAndSkill() {
     let team1 = players.filter((player) => player.teamNumber == 1)
     let team2 = players.filter((player) => player.teamNumber == 2)
     // console.log(team1)
     // console.log(team2)
 
-    let team1Skill = 0
+
     team1.forEach(player => {
-        player.skill += team1Skill
+        team1Skill += player.skill
         console.log(player.skill)
     });
 
-    let team2Skill = 0
+
     team2.forEach(player => {
-        player.skill += team2Skill
+        team2Skill += player.skill
         console.log(player.skill)
     });
 
     console.log('team 1 ', team1Skill)
-    console.log('team2 ', team2Skill)
+    console.log('team 2 ', team2Skill)
 }
+
+let winner = ''
+function checkWinner(index) {
+    if (team1Skill > team2Skill) {
+        winner = 'Team 1'
+        if (teamBet[index] > 1) {
+            bank += (teamBet[index] * 2)
+        } else {
+            bank -= teamBet[index]
+        }
+
+    } else {
+        winner = 'Team 2'
+        if (teamBet[index] > 1) {
+            bank += (teamBet[index] * 2)
+        } else {
+            bank -= teamBet[index]
+        }
+    }
+    console.log(winner)
+}
+
+
+function drawBank() {
+    let bankContent = document.getElementById('bankTotal')
+
+    bankContent.innerText = `$${bank}`
+}
+
+let teamBet = [0, 0]
+function bet(index, value) {
+    bank -= value
+    teamBet[index] += value
+    console.log(teamBet);
+    drawBank()
+    checkWinner(index)
+}
+
+function betItAll(index) {
+    bank -= bank
+    teamBet[index] += bank
+    console.log(teamBet);
+    drawBank()
+    checkWinner(index)
+}
+
+draftPlayers()
