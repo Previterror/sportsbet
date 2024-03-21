@@ -186,6 +186,7 @@ function checkWinner() {
     console.log('winner is', winner)
     drawResult()
     adjustBank()
+    document.getElementById('tryAgain').classList.remove('d-none')
     teamBet = [0, 0]
     chosenTeam = null
 }
@@ -239,6 +240,24 @@ function drawResult() {
         resultImage.innerHTML = `<span class="mdi mdi-thumb-down-outline fs-1"></span>`
         resultText.innerText = 'Aw rats you lose!'
     }
+}
+
+function reset() {
+    players.forEach(player => {
+        player.teamNumber = 0
+    })
+
+    team1Skill = 0
+    team2Skill = 0
+    winner = null
+    teamBet = [0, 0]
+    chosenTeam = null
+    let resultImage = document.getElementById('resultsImage')
+    let resultText = document.getElementById('resultsText')
+    resultImage.innerHTML = `<span class="mdi mdi-fencing fs-1"></span>`
+    resultText.innerText = 'Place Your Bets'
+    document.getElementById('tryAgain').classList.add('d-none')
+    drawTeams()
 }
 
 draftPlayers()
