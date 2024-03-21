@@ -257,7 +257,11 @@ function reset() {
     resultImage.innerHTML = `<span class="mdi mdi-fencing fs-1"></span>`
     resultText.innerText = 'Place Your Bets'
     document.getElementById('tryAgain').classList.add('d-none')
-    drawTeams()
+    let teamOne = document.getElementById('roster1')
+    teamOne.innerHTML = `<span></span>`
+    let teamTwo = document.getElementById('roster2')
+    teamTwo.innerHTML = `<span></span>`
+    draftPlayers()
 }
 
 draftPlayers()
